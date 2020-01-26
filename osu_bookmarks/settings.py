@@ -16,11 +16,12 @@ import environ
 root = environ.Path(__file__) - 2  # two folder back (/a/b/ - 2 = /)
 
 env = environ.Env(
-    DEBUG=(bool, False),
-    ALLOWED_HOSTS=(list, []),
+    SECRET_KEY=(str, '-xl3ufv8q+_c-_jr4yd%g$$ymyosq42f&1qi5erfh03oa=sbo-'),
+    DEBUG=(bool, True),
+    ALLOWED_HOSTS=(list, ['127.0.0.1']),
 )
 
-environ.Env.read_env(root('.env'))
+env.read_env(root('.env'))
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -35,7 +36,7 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
 
-ALLOWED_HOSTS = ['127.0.0.1', 'osu.burro.dev']
+ALLOWED_HOSTS = env('ALLOWED_HOSTS')
 
 
 # Application definition
