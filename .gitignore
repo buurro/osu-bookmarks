@@ -1,0 +1,6 @@
+.flake8
+.env
+.vscode
+venv
+db.sqlite3
+*__pycache__/
