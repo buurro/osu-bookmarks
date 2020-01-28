@@ -19,6 +19,7 @@ env = environ.Env(
     SECRET_KEY=(str, '-xl3ufv8q+_c-_jr4yd%g$$ymyosq42f&1qi5erfh03oa=sbo-'),
     DEBUG=(bool, True),
     ALLOWED_HOSTS=(list, ['127.0.0.1']),
+    TIME_ZONE=(str, 'UTC'),
 )
 
 env.read_env(root('.env'))
@@ -115,7 +116,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = env('TIME_ZONE')
 
 USE_I18N = True
 
